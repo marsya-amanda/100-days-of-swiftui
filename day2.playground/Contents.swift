@@ -12,10 +12,5 @@ var isAuthenticated = false
 isAuthenticated = !isAuthenticated
 
 // // functionality
-<<<<<<< HEAD
 var canToggle = true
 canToggle.toggle() // WOW toggle value
-=======
-gameOver.toggle() // WOW toggle value
->>>>>>> 2b4031424172eedb1bc4cffad2b9268560a815a9
-

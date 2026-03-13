@@ -34,4 +34,58 @@ let name = "mars"
 print(name.sorted())
 
 // // DICTIONARIES
+let gnomeBoss = [
+    "name": "emerson",
+    "job": "care support worker",
+    "location": "nashville"
+] // key: value
 
+print(gnomeBoss["name", default: "Unknown"]) // add a default value in case the key doesn't exist, else it prints Optional(string)
+// can be default: "Some String"
+
+var heights = [String: Int]() // initialise dict
+heights["Yao Ming"] = 229
+heights["Shaquille O'Neal"] = 216
+heights["LeBron James"] = 206
+print(heights)
+
+print(heights.count)
+print(heights.removeAll())
+
+// // SETS - fast data lookup
+
+// create array first then set -> set removes duplicate values
+var people = Set(["Mars", "Emerson"])
+print(people) // might be ordered differently than initialisation
+
+people.insert("Declan")
+people.insert("Lilly")
+people.insert("Miu")
+people.insert("Emerson")
+print(people)
+
+// note: sets are highly highly optimised - lookup is very fast compared to arrays
+print(people.contains("Lilly"))
+
+// // ENUM
+
+// define in uppercase
+enum Weekday {
+    case monday
+    case tuesday
+    case wednesday
+    case thursday
+    case friday
+}
+
+var today = Weekday.friday
+today = Weekday.wednesday
+print(today)
+
+enum State {
+    case confused, happy // easier!
+}
+
+var curr = State.happy
+curr = .confused
+print(curr)

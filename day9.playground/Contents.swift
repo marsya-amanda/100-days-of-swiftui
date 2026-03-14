@@ -94,10 +94,10 @@ func makeArray(size: Int, using generator: () -> Int) -> [Int] {
     return numbers
 }
 
-// both valid, but can omit
-let rolls = makeArray(size: 50) { Int.random(in: 1...20)}
+// both valid
+let rolls = makeArray(size: 50) { Int.random(in: 1...20)} // trailing closure
 let rolls2 = makeArray(size: 10, using: {Int.random(in: 1...20)})
-print(rolls2)
+print(rolls)
 
 // // example: takes three functions
 func doImportantWork(first: () -> Void, second: () -> Void, third: () -> Void) {
@@ -118,3 +118,17 @@ doImportantWork {
 } third: {
     print("Third work")
 }
+
+// // CHECKPOINT 5 - call sorted(), filter(), map() in a chain without using temp var
+let luckyNumbers = [7, 4, 38, 21, 16, 15, 12, 33, 31, 49]
+
+// filter out even numbers, sort in ascending, map to strings in format "X is a lucky number", print
+let getLuckyNumbers = { (nums: [Int]) in
+    var result: [String] = nums.filter {$0 % 2 == 1}.sorted().map { "\($0) is a lucky number" } // can use isMultiple
+    
+    for line in result {
+        print(line)
+    }
+}
+
+getLuckyNumbers(luckyNumbers)
